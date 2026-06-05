@@ -1,3 +1,12 @@
+app.use(
+  cors({
+    origin: [
+      "https://prismatic-rabanadas-c45efa.netlify.app/",
+    ],
+    credentials: true,
+  })
+);
+
 import express from "express";
 import bodyParser from "body-parser";
 import mongoose from "mongoose";
