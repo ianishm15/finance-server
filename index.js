@@ -29,9 +29,9 @@ app.get("/", (req, res) => {
 
 
 /* ROUTES */
-app.use("/api", kpiRoutes);
-app.use("/api", productRoutes);
-app.use("/api", transactionRoutes);
+app.use("/kpi", kpiRoutes);
+app.use("/product", productRoutes);
+app.use("/transaction", transactionRoutes);
 
 /* MONGOOSE SETUP */
 const PORT = process.env.PORT || 9000;
