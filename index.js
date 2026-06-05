@@ -19,14 +19,19 @@ app.use(helmet.crossOriginResourcePolicy({ policy: "cross-origin" }));
 app.use(morgan("common"));
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: false }));
+
+const allowedOrigins = [
+  "http://localhost:5173",
+  "https://prismatic-rabanadas-c45efa.netlify.app/",
+];
+
 app.use(
   cors({
-    origin: [
-      "https://prismatic-rabanadas-c45efa.netlify.app/",
-    ],
+    origin: allowedOrigins,
     credentials: true,
   })
 );
+
 app.get("/", (req, res) => {
   res.status(200).json({
     success: true,
