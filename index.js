@@ -1,11 +1,3 @@
-app.use(
-  cors({
-    origin: [
-      "https://prismatic-rabanadas-c45efa.netlify.app/",
-    ],
-    credentials: true,
-  })
-);
 
 import express from "express";
 import bodyParser from "body-parser";
@@ -27,8 +19,14 @@ app.use(helmet.crossOriginResourcePolicy({ policy: "cross-origin" }));
 app.use(morgan("common"));
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: false }));
-app.use(cors());
-
+app.use(
+  cors({
+    origin: [
+      "https://prismatic-rabanadas-c45efa.netlify.app/",
+    ],
+    credentials: true,
+  })
+);
 app.get("/", (req, res) => {
   res.status(200).json({
     success: true,
